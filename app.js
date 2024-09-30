@@ -40,4 +40,19 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+
+const mongoose=require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/lms-tool');
+
+
+
+const db = mongoose.connection;
+
+db.once('open',()=>{
+    console.log("conncet to mongodb")
+
+})
+
 module.exports = app;
